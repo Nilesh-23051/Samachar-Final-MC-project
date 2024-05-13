@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="App.Starting.Theme" parent = "Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">#F1F1F1</item>
+        //Splash icon
+        <item name="windowSplashScreenAnimatedIcon">@drawable/splash_icon</item>
+        //Theme after the SplashScreen
+        <item name="postSplashScreenTheme">@style/Theme.Samachar</item>
+
+    </style>
+</resources>
