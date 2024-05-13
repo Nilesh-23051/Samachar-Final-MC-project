@@ -9,6 +9,8 @@ interface NewsRepository {
 
     fun searchNews(searchQuery:String,sources: List<String>): Flow<PagingData<Article>>
 
+    fun locationNews(country:String,sources: List<String>): Flow<PagingData<Article>>
+
     suspend fun upsertArticle(article:Article)
 
     suspend fun deleteArticle(article:Article)

@@ -1,4 +1,6 @@
 //testable file
+
+//Saving app entry when user clicks get started
 package com.hello.samachar.domain.manager
 
 import kotlinx.coroutines.flow.Flow

@@ -79,6 +79,8 @@ android {
 }
 
 dependencies {
+
+    implementation(libs.play.services.maps)
     //Splash screen
     implementation("androidx.core:core-splashscreen:1.0.0")
     //Compose Navigation

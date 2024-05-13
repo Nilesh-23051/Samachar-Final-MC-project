@@ -27,10 +27,10 @@ interface NewsApi {
 
     @GET("everything")
     suspend fun locationNews(
-        @Query("q") searchQuery: String,
         @Query("sources") sources: String,
         @Query("page") page: Int,
-        @Query("apiKey") apiKey: String = API_KEY
+        @Query("apiKey") apiKey: String = API_KEY,
+        @Query("country") country: String
     ): NewsResponse
 
 }

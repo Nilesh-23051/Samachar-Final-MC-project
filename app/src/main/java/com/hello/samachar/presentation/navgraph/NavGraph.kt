@@ -19,6 +19,7 @@ fun NavGraph(
     val navController = rememberNavController()
 
     NavHost(navController = navController, startDestination = startDestination) {
+        //Subgraph for onBorading Screen
         navigation(
             route = Route.AppStartNavigation.route,
             startDestination = Route.OnBoardingScreen.route

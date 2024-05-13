@@ -15,7 +15,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
 class LocalUserManagerImpl(         //Using Dagger Hilt we can create instance of this class and inject this Context object in NewsApplication class
-    //Saving key value
+    //Saving key value locally
     //This class needs this Context to work, so Context is working as a dependency
     private val context: Context
 ) :LocalUserManager{

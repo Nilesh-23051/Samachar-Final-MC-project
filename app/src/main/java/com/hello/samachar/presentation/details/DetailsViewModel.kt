@@ -1,5 +1,6 @@
 package com.hello.samachar.presentation.details
 
+import android.widget.Toast
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -10,8 +11,10 @@ import com.hello.samachar.domain.usecases.news.DeleteArticle
 import com.hello.samachar.domain.usecases.news.NewsUseCases
 import com.hello.samachar.domain.usecases.news.UpsertArticle
 import dagger.hilt.android.lifecycle.HiltViewModel
+
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+
 
 @HiltViewModel
 class DetailsViewModel @Inject constructor(
@@ -45,6 +48,7 @@ class DetailsViewModel @Inject constructor(
     private suspend fun deleteArticle(article: Article) {
         deleteArticleUseCase(article = article)
         sideEffect = "Article deleted"
+
     }
 
     private suspend fun upsertArticle(article: Article) {

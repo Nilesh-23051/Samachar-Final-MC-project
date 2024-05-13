@@ -6,6 +6,7 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.hello.samachar.data.local.NewsDao
+import com.hello.samachar.data.remote.LocationNewsPagingSource
 import com.hello.samachar.data.remote.NewsApi
 import com.hello.samachar.data.remote.NewsPagingSource
 import com.hello.samachar.data.remote.SearchNewsPagingSource
@@ -41,6 +42,23 @@ class NewsRepositoryImpl(
             }
         ).flow
     }
+
+    override fun locationNews(
+        countrycode: String,
+        sources: List<String>
+    ): Flow<PagingData<Article>> {
+        return Pager(
+            config = PagingConfig(pageSize = 10),
+            pagingSourceFactory = {
+                LocationNewsPagingSource(
+                    api = newsApi,
+                    country = countrycode,
+                    sources = sources.joinToString(separator = ",")
+                )
+            }
+        ).flow
+    }
+
 
     override suspend fun upsertArticle(article: Article) {
         newsDao.upsert(article)

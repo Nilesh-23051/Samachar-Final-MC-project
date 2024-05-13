@@ -33,11 +33,16 @@ import com.hello.samachar.presentation.details.DetailsScreen
 import com.hello.samachar.presentation.details.DetailsViewModel
 import com.hello.samachar.presentation.home.HomeScreen
 import com.hello.samachar.presentation.home.HomeViewModel
+
 import com.hello.samachar.presentation.navgraph.Route
 import com.hello.samachar.presentation.news_navigator.components.BottomNavigationItem
 import com.hello.samachar.presentation.news_navigator.components.NewsBottomNavigation
 import com.hello.samachar.presentation.search.SearchScreen
 import com.hello.samachar.presentation.search.SearchViewModel
+import com.hello.samachar.presentation.location.LocationScreen
+import com.hello.samachar.presentation.location.LocationViewModel
+import com.hello.samachar.presentation.location.LocationState
+import com.hello.samachar.presentation.location.LocationEvent
 import com.hello.samachar.util.UIComponent
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -69,7 +74,8 @@ fun NewsNavigator() {
     val isBottomBarVisible = remember(key1 = backStackState) {
         backStackState?.destination?.route == Route.HomeScreen.route ||
                 backStackState?.destination?.route == Route.SearchScreen.route ||
-                backStackState?.destination?.route == Route.BookmarkScreen.route
+                backStackState?.destination?.route == Route.BookmarkScreen.route||
+                backStackState?.destination?.route == Route.LocationScreen.route
     }
 
 
@@ -93,6 +99,10 @@ fun NewsNavigator() {
                         2 -> navigateToTab(
                             navController = navController,
                             route = Route.BookmarkScreen.route
+                        )
+                        3-> navigateToTab(
+                            navController = navController,
+                            route = Route.LocationScreen.route
                         )
                     }
                 }
@@ -165,6 +175,23 @@ fun NewsNavigator() {
                         )
                     }
                 )
+            }
+            composable(route = Route.LocationScreen.route) {
+                val viewModel: LocationViewModel = hiltViewModel()
+                val state = viewModel.state.value
+                OnBackClickStateSaver(navController = navController)
+                LocationScreen(
+                    state = state,
+                    event = viewModel::onEvent,
+                    navigateToDetails = { article ->
+                        navigateToDetails(
+                            navController = navController,
+                            article=article
+                        )
+                    }
+                )
+
+
             }
         }
     }

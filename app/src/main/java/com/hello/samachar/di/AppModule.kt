@@ -15,6 +15,7 @@ import com.hello.samachar.domain.usecases.app_entry.ReadAppEntry
 import com.hello.samachar.domain.usecases.app_entry.SaveAppEntry
 import com.hello.samachar.domain.usecases.news.DeleteArticle
 import com.hello.samachar.domain.usecases.news.GetNews
+import com.hello.samachar.domain.usecases.news.LocationNews
 import com.hello.samachar.domain.usecases.news.NewsUseCases
 import com.hello.samachar.domain.usecases.news.SearchNews
 import com.hello.samachar.domain.usecases.news.SelectArticle
@@ -76,6 +77,7 @@ object AppModule {
         return NewsUseCases(
             getNews = GetNews(newsRepository),
             searchNews = SearchNews(newsRepository),
+            locationNews = LocationNews(newsRepository),
             upsertArticle=UpsertArticle(newsRepository),
             deleteArticle = DeleteArticle(newsRepository),
             selectArticles = SelectArticles(newsRepository),

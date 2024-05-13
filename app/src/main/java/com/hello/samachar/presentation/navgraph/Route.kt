@@ -12,10 +12,11 @@ sealed class Route(
     object SearchScreen:Route(route="searchScreen")
     object BookmarkScreen:Route(route="bookmarkScreen")
     object DetailsScreen:Route(route="detailsScreen")
+    object LocationScreen : Route(route = "locationScreen")
 
 
     //Route for subnavigation
-    object AppStartNavigation:Route(route="appStartNavigation")
-    object NewsNavigation:Route(route="newsNavigation")
+    object AppStartNavigation:Route(route="appStartNavigation") // will show the onbording screen
+    object NewsNavigation:Route(route="newsNavigation") //will show rest of the screen
     object NewsNavigatorScreen:Route(route="newsNavigator")
 }

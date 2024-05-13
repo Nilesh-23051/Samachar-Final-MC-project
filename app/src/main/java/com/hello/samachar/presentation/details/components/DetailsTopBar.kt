@@ -50,6 +50,7 @@ fun DetailsTopBar(
                     painter = painterResource(id = R.drawable.ic_bookmark),
                     contentDescription = null
                 )
+
             }
             IconButton(onClick = onShareClick) {
                 Icon(
